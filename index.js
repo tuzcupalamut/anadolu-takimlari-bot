@@ -17,6 +17,9 @@ require("./events/messageDelete");
 const ready =
 require("./events/ready");
 
+const guildMemberAdd =
+require("./events/guildMemberAdd");
+
 const client =
 new Client({
 
@@ -36,10 +39,14 @@ new Collection();
 const commandFiles =
 
 fs
-.readdirSync("./commands")
+
+.readdirSync(
+"./commands"
+)
+
 .filter(
-f =>
-f.endsWith(".js")
+file =>
+file.endsWith(".js")
 );
 
 for (
@@ -145,6 +152,11 @@ interactionHandler
 client.on(
 "messageDelete",
 messageDelete
+);
+
+client.on(
+"guildMemberAdd",
+guildMemberAdd
 );
 
 client.login(

@@ -5,7 +5,8 @@ const fs = require("fs");
 const {
 Client,
 Collection,
-GatewayIntentBits
+GatewayIntentBits,
+ActivityType
 } = require("discord.js");
 
 const interactionHandler =
@@ -35,6 +36,10 @@ GatewayIntentBits.GuildMessages
 
 client.commands =
 new Collection();
+
+/*
+Komutları yükle
+*/
 
 const commandFiles =
 
@@ -70,6 +75,10 @@ command
 
 }
 
+/*
+Bot hazır
+*/
+
 client.once(
 
 "ready",
@@ -80,11 +89,28 @@ console.log(
 `${client.user.tag} hazır.`
 );
 
+client.user.setActivity(
+
+"Created by Palamut Tuzcu",
+
+{
+
+type:
+ActivityType.Listening
+
+}
+
+);
+
 await ready(
 client
 );
 
 }
+
+/*
+Slash komutlar
+*/
 
 );
 
@@ -144,15 +170,27 @@ flags:64
 
 );
 
+/*
+Dropdown
+*/
+
 client.on(
 "interactionCreate",
 interactionHandler
 );
 
+/*
+Panel koruma
+*/
+
 client.on(
 "messageDelete",
 messageDelete
 );
+
+/*
+Hoş geldin
+*/
 
 client.on(
 "guildMemberAdd",

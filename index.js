@@ -61,8 +61,11 @@ require(
 );
 
 client.commands.set(
+
 command.data.name,
+
 command
+
 );
 
 }
@@ -72,6 +75,7 @@ Bot hazır
 */
 
 client.once(
+
 "ready",
 
 async () => {
@@ -81,11 +85,16 @@ console.log(
 );
 
 client.user.setActivity(
+
 "Made by Atilla Şekerci",
+
 {
+
 type:
 ActivityType.Listening
+
 }
+
 );
 
 await ready(
@@ -93,6 +102,7 @@ client
 );
 
 }
+
 );
 
 /*
@@ -100,6 +110,7 @@ Slash komutlar
 */
 
 client.on(
+
 "interactionCreate",
 
 async interaction => {
@@ -110,6 +121,7 @@ if (
 return;
 
 const command =
+
 client.commands.get(
 interaction.commandName
 );
@@ -135,14 +147,19 @@ console.log(err);
 try {
 
 if (
-interaction.deferred ||
-interaction.replied
+
+interaction.replied ||
+
+interaction.deferred
+
 ) {
 
-await interaction.editReply({
+await interaction.followUp({
 
 content:
-"Komut çalıştırılamadı."
+"Komut çalıştırılamadı.",
+
+flags:64
 
 });
 
@@ -168,10 +185,11 @@ catch {}
 }
 
 }
+
 );
 
 /*
-Dropdown sistemi
+Dropdown
 */
 
 client.on(

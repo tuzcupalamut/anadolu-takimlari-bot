@@ -44,11 +44,7 @@ Komutları yükle
 const commandFiles =
 
 fs
-
-.readdirSync(
-"./commands"
-)
-
+.readdirSync("./commands")
 .filter(
 file =>
 file.endsWith(".js")
@@ -60,17 +56,13 @@ of commandFiles
 ) {
 
 const command =
-
 require(
 `./commands/${file}`
 );
 
 client.commands.set(
-
 command.data.name,
-
 command
-
 );
 
 }
@@ -80,7 +72,6 @@ Bot hazır
 */
 
 client.once(
-
 "ready",
 
 async () => {
@@ -90,16 +81,11 @@ console.log(
 );
 
 client.user.setActivity(
-
 "Made by Atilla Şekerci",
-
 {
-
 type:
 ActivityType.Listening
-
 }
-
 );
 
 await ready(
@@ -107,15 +93,13 @@ client
 );
 
 }
+);
 
 /*
 Slash komutlar
 */
 
-);
-
 client.on(
-
 "interactionCreate",
 
 async interaction => {
@@ -126,7 +110,6 @@ if (
 return;
 
 const command =
-
 client.commands.get(
 interaction.commandName
 );
@@ -149,9 +132,23 @@ catch (err) {
 
 console.log(err);
 
+try {
+
 if (
-!interaction.replied
+interaction.deferred ||
+interaction.replied
 ) {
+
+await interaction.editReply({
+
+content:
+"Komut çalıştırılamadı."
+
+});
+
+}
+
+else {
 
 await interaction.reply({
 
@@ -166,12 +163,15 @@ flags:64
 
 }
 
+catch {}
+
 }
 
+}
 );
 
 /*
-Dropdown
+Dropdown sistemi
 */
 
 client.on(

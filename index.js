@@ -91,7 +91,7 @@ console.log(
 
 client.user.setActivity(
 
-"Created by Palamut Tuzcu",
+"Made by Atilla Şekerci",
 
 {
 

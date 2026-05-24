@@ -28,26 +28,32 @@ emoji: "1507473236630442124"
 
 {
 label: "Erzurumspor FK",
-roleId: "",
-emoji: ""
+roleId: "1507858189608030288",
+emoji: "1508224463848738886"
 },
 
 {
 label: "Kocaelispor",
-roleId: "",
-emoji: ""
+roleId: "1507859374058770512",
+emoji: "1508224521696448522"
 },
 
 {
 label: "Konyaspor",
-roleId: "",
-emoji: ""
+roleId: "1507859407717929000",
+emoji: "1508224585479229590"
+},
+
+{
+label: "Çorum FK",
+roleId: "1507857323681517579",
+emoji: "1508224647936737471"
 },
 
 {
 label: "Göztepe SK",
-roleId: "",
-emoji: ""
+roleId: "1507858830397014189",
+emoji: "1508224705453359104"
 },
 
 {
@@ -74,74 +80,68 @@ emoji: "1504772484879352058"
 
 {
 label: "Gençlerbirliği",
-roleId: "",
-emoji: ""
+roleId: "1507856575098781797",
+emoji: "1507863891139625091"
 },
 
 {
 label: "Manisa FK",
-roleId: "",
-emoji: ""
+roleId: "1507860050524508322",
+emoji: "1508225396229800117"
 },
 
 {
 label: "Vanspor FK",
-roleId: "",
-emoji: ""
+roleId: "1507862736661516338",
+emoji: "1508225448528838726"
 },
 
 {
 label: "Mardin 1969 Spor",
-roleId: "",
-emoji: ""
-},
-
-{
-label: "Çorum FK",
-roleId: "",
-emoji: ""
+roleId: "1507860104198754477",
+emoji: "1508225491499352225"
 },
 
 {
 label: "Muğlaspor",
-roleId: "",
-emoji: ""
+roleId: "1507860168967327884",
+emoji: "1508225520415015063"
 },
 
 {
 label: "Iğdır FK",
-roleId: "",
-emoji: ""
+roleId: "1507858605091848332",
+emoji: "1508225584692461639"
 },
 
 {
 label: "Batman Petrolspor",
-roleId: "",
-emoji: ""
+roleId: "1507856749540151296",
+emoji: "1508225611951247511"
 },
 
 {
 label: "Boluspor",
-roleId: "",
-emoji: ""
+roleId: "1507857272527650897",
+emoji: "1508225639419875428"
 },
 
 {
 label: "Kayserispor",
-roleId: "",
-emoji: ""
+roleId: "1507859155422285915",
+emoji: "1508225664996610048"
 },
 
 {
 label: "Sivasspor",
-roleId: "",
-emoji: ""
+roleId: "1507862706277847251",
+emoji: "1508225697468907603"
 },
 
 {
 label: "İstanbulspor",
-roleId: "",
-emoji: ""
+roleId: "1507858798835011675",
+emoji: "1508225738065575976"
 }
 
 ],
@@ -150,8 +150,8 @@ lig2: [
 
 {
 label: "68 Aksaray Belediyespor",
-roleId: "",
-emoji: ""
+roleId: "1507856160227590284",
+emoji: "1507863729973366876"
 },
 
 {
@@ -168,74 +168,74 @@ emoji: "1507473106376331306"
 
 {
 label: "12 Bingölspor",
-roleId: "",
-emoji: ""
+roleId: "1507822086469582991",
+emoji: "1508225964461523206"
 },
 
 {
 label: "Muşspor",
-roleId: "",
-emoji: ""
+roleId: "1507862504766836736",
+emoji: "1508226028965986445"
 },
 
 {
 label: "Şanlıurfaspor",
-roleId: "",
-emoji: ""
+roleId: "1507862663819038770",
+emoji: "1508226094757576774"
 },
 
 {
 label: "Belediye Kütahyaspor",
-roleId: "",
-emoji: ""
+roleId: "1507859571333533729",
+emoji: "1508226131126386728"
 },
 
 {
 label: "Kahramanmaraş İstiklalspor",
-roleId: "",
-emoji: ""
+roleId: "1507859061880914060",
+emoji: "1508226178375225374"
 },
 
 {
 label: "Hatayspor",
-roleId: "",
-emoji: ""
+roleId: "1507858171992215812",
+emoji: "1508226212810723462"
 },
 
 {
 label: "MKE Ankaragücü",
-roleId: "",
-emoji: ""
+roleId: "1504386759574945863",
+emoji: "1504772525526093907"
 },
 
 {
 label: "Elazığspor",
-roleId: "",
-emoji: ""
+roleId: "1507857998780043427",
+emoji: "1508226256498589851"
 },
 
 {
 label: "Kırklarelispor",
-roleId: "",
-emoji: ""
+roleId: "1507859297978024036",
+emoji: "1508226283396661328"
 },
 
 {
 label: "Isparta 32 Spor",
-roleId: "",
-emoji: ""
+roleId: "1507858682916896809",
+emoji: "1508226311569539266"
 },
 
 {
 label: "24 Erzincanspor",
-roleId: "",
-emoji: ""
+roleId: "1507858103800958976",
+emoji: "1508226344348291173"
 },
 
 {
 label: "52 Orduspor FK",
-roleId: "",
-emoji: ""
+roleId: "1507862595049361539",
+emoji: "1508226378263167177"
 },
 
 {
@@ -262,104 +262,98 @@ emoji: "1507473029389750434"
 
 {
 label: "Amasyaspor FK",
-roleId: "",
-emoji: ""
+roleId: "1507856298362933469",
+emoji: "1507863801297371167"
 },
 
 {
 label: "Tokat Belediye Plevnespor",
-roleId: "",
-emoji: ""
+roleId: "1507862765015142585",
+emoji: "1508226508106240151"
 },
 
 {
 label: "Osmaniyespor FK",
-roleId: "",
-emoji: ""
-},
-
-{
-label: "Yozgat Belediyesi Bozok Spor",
-roleId: "",
-emoji: ""
+roleId: "1507862601764311153",
+emoji: "1508226535394513046"
 },
 
 {
 label: "Denizli İdmanyurdu Güreller SK",
-roleId: "",
-emoji: ""
+roleId: "1507857396477984959",
+emoji: "1508226606282440835"
 },
 
 {
 label: "Yeni Mersin İdmanyurdu",
-roleId: "",
-emoji: ""
+roleId: "1507858736545398804",
+emoji: "1508226628621172939"
 },
 
 {
 label: "Balıkesirspor",
-roleId: "",
-emoji: ""
+roleId: "1507856598796730509",
+emoji: "1508226650993852487"
 },
 
 {
 label: "Niğde Belediyespor",
-roleId: "",
-emoji: ""
+roleId: "1507862548010106900",
+emoji: "1508226685345075200"
 },
 
 {
 label: "Diyarbekirspor",
-roleId: "",
-emoji: ""
+roleId: "1507857884904685578",
+emoji: "1508226722368061480"
 },
 
 {
 label: "Kırıkkale FK",
-roleId: "",
-emoji: ""
+roleId: "1507859213165269053",
+emoji: "1508226764772741180"
 },
 
 {
 label: "Düzcespor",
-roleId: "",
-emoji: ""
+roleId: "1507857914566672464",
+emoji: "1508226787685961778"
 },
 
 {
 label: "Karabük İdmanyurdu",
-roleId: "",
-emoji: ""
+roleId: "1507859099067351120",
+emoji: "1508226805218279485"
 },
 
 {
 label: "Ağrı 1970 Spor",
-roleId: "",
-emoji: ""
+roleId: "1507855717170811043",
+emoji: "1507863700348866770"
 },
 
 {
 label: "Kırşehir FK",
-roleId: "",
-emoji: ""
+roleId: "1507859335919698011",
+emoji: "1508226860113330317"
 },
 
 {
 label: "Uşakspor",
-roleId: "",
-emoji: ""
+roleId: "1507862795683631124",
+emoji: "1508226880505909288"
 },
 
 {
 label: "Yeni Malatyaspor",
-roleId: "",
+roleId: "1507860005007659268",
 emoji: ""
 },
 
 {
 label: "Zonguldak Kömürspor",
-roleId: "",
-emoji: ""
+roleId: "1507862881029586985",
+emoji: "1508226907131482214"
 },
 
 {

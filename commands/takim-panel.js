@@ -28,9 +28,6 @@ new SlashCommandBuilder()
 "Takım seçim paneli"
 )
 
-/*
-Sadece yönetici görebilsin
-*/
 .setDefaultMemberPermissions(
 PermissionFlagsBits.Administrator
 ),
@@ -38,11 +35,9 @@ PermissionFlagsBits.Administrator
 async execute(interaction) {
 
 if (
-
 !interaction.member.permissions.has(
 PermissionFlagsBits.Administrator
 )
-
 ) {
 
 return interaction.reply({
@@ -87,21 +82,51 @@ config.embedColor
 "🏟️ Anadolu Takımları"
 )
 
-.setDescription(
-`
+.setDescription(`
 Desteklediğin Anadolu takımını seç.
 
 • Aynı anda yalnızca 1 takım rolü alınabilir
 • Aynı takımı tekrar seçersen rol kaldırılır
 • Yeni seçim yaptığında eski takım rolün kaldırılır
-`
-);
+`);
 
 function createMenu(
 id,
 placeholder,
 items
 ) {
+
+const options =
+
+items.map(team => {
+
+const option = {
+
+label:
+team.label,
+
+value:
+team.roleId
+
+};
+
+if (
+team.emoji &&
+team.emoji.trim() !== ""
+) {
+
+option.emoji = {
+
+id:
+team.emoji
+
+};
+
+}
+
+return option;
+
+});
 
 return new ActionRowBuilder()
 
@@ -118,25 +143,7 @@ placeholder
 )
 
 .addOptions(
-
-items.map(
-team => ({
-
-label:
-team.label,
-
-value:
-team.roleId,
-
-emoji:{
-id:
-team.emoji
-}
-
-})
-
-)
-
+options
 )
 
 );
@@ -205,7 +212,12 @@ flags:64
 
 }
 
-catch {}
+catch {
+
+config.panelMessageId =
+null;
+
+}
 
 }
 

@@ -24,7 +24,7 @@ require("./events/guildMemberAdd");
 const client =
 new Client({
 
-intents: [
+intents:[
 
 GatewayIntentBits.Guilds,
 GatewayIntentBits.GuildMembers,
@@ -38,7 +38,7 @@ client.commands =
 new Collection();
 
 /*
-Komutları yükle
+KOMUTLARI YÜKLE
 */
 
 const commandFiles =
@@ -46,8 +46,8 @@ const commandFiles =
 fs
 .readdirSync("./commands")
 .filter(
-file =>
-file.endsWith(".js")
+f =>
+f.endsWith(".js")
 );
 
 for (
@@ -55,10 +55,19 @@ const file
 of commandFiles
 ) {
 
+try {
+
 const command =
 require(
 `./commands/${file}`
 );
+
+if (
+
+command.data &&
+command.execute
+
+) {
 
 client.commands.set(
 
@@ -70,8 +79,22 @@ command
 
 }
 
+}
+
+catch (err) {
+
+console.log(
+`${file} yüklenemedi`
+);
+
+console.log(err);
+
+}
+
+}
+
 /*
-Bot hazır
+READY
 */
 
 client.once(
@@ -81,7 +104,7 @@ client.once(
 async () => {
 
 console.log(
-`${client.user.tag} hazır.`
+`${client.user.tag} hazır`
 );
 
 client.user.setActivity(
@@ -106,7 +129,7 @@ client
 );
 
 /*
-Slash komutlar
+INTERACTION
 */
 
 client.on(
@@ -114,6 +137,26 @@ client.on(
 "interactionCreate",
 
 async interaction => {
+
+try {
+
+/*
+Dropdown
+*/
+
+if (
+interaction.isStringSelectMenu()
+) {
+
+return await interactionHandler(
+interaction
+);
+
+}
+
+/*
+Slash
+*/
 
 if (
 !interaction.isChatInputCommand()
@@ -131,7 +174,9 @@ if (
 )
 return;
 
-try {
+/*
+Komutu çalıştır
+*/
 
 await command.execute(
 interaction,
@@ -142,37 +187,38 @@ client
 
 catch (err) {
 
-console.log(err);
+console.log(
+"HATA:",
+err
+);
+
+/*
+Discord interaction kapanmış
+*/
+
+if (
+
+err?.code === 10062 ||
+err?.code === 40060
+
+) {
+
+return;
+
+}
 
 try {
 
 if (
 
-interaction.replied ||
-
 interaction.deferred
 
 ) {
 
-await interaction.followUp({
+await interaction.editReply({
 
 content:
-"Komut çalıştırılamadı.",
-
-flags:64
-
-});
-
-}
-
-else {
-
-await interaction.reply({
-
-content:
-"Komut çalıştırılamadı.",
-
-flags:64
+"Komut çalıştırılamadı."
 
 });
 
@@ -189,16 +235,7 @@ catch {}
 );
 
 /*
-Dropdown
-*/
-
-client.on(
-"interactionCreate",
-interactionHandler
-);
-
-/*
-Panel koruma
+EVENTLER
 */
 
 client.on(
@@ -206,15 +243,10 @@ client.on(
 messageDelete
 );
 
-/*
-Hoş geldin
-*/
-
 client.on(
 "guildMemberAdd",
 guildMemberAdd
 );
 
 client.login(
-process.env.TOKEN
-);
+process.env.TOKEN);

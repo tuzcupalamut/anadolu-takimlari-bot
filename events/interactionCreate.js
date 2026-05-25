@@ -9,6 +9,10 @@ require("../data/teams");
 module.exports =
 async interaction => {
 
+/*
+SADECE DROPDOWN
+*/
+
 if (
 !interaction.isStringSelectMenu()
 )
@@ -41,11 +45,13 @@ t =>
 t.roleId === selectedRoleId
 );
 
-if (!selectedTeam)
+if (
+!selectedTeam
+)
 return;
 
 /*
-MENÜLERİ SIFIRLA
+MENÜLER
 */
 
 const rebuild = (
@@ -60,7 +66,9 @@ new ActionRowBuilder()
 
 new StringSelectMenuBuilder()
 
-.setCustomId(id)
+.setCustomId(
+id
+)
 
 .setPlaceholder(
 placeholder
@@ -68,12 +76,21 @@ placeholder
 
 .addOptions(
 
-items.map(
+items
+
+.filter(
+t =>
+t.emoji
+)
+
+.map(
 t => ({
 
-label:t.label,
+label:
+t.label,
 
-value:t.roleId,
+value:
+t.roleId,
 
 emoji:{
 id:t.emoji
@@ -113,7 +130,6 @@ rebuild(
 "lig3",
 "🟡 3. Lig",
 teams.lig3
-
 )
 
 ]
@@ -125,9 +141,11 @@ AYNI ROL → KALDIR
 */
 
 if (
+
 member.roles.cache.has(
 selectedRoleId
 )
+
 ) {
 
 await member.roles.remove(
@@ -137,7 +155,6 @@ selectedRoleId
 return interaction.followUp({
 
 content:
-
 `🗑️ ${selectedTeam.label} rolü kaldırıldı.`,
 
 flags:64
@@ -147,7 +164,7 @@ flags:64
 }
 
 /*
-DİĞER TAKIMLARI TEMİZLE
+ESKİ TAKIMLARI TEMİZLE
 */
 
 const remove =
@@ -161,9 +178,11 @@ t.roleId
 
 .filter(
 id =>
+
 member.roles.cache.has(
 id
 )
+
 );
 
 if (
@@ -183,7 +202,6 @@ selectedRoleId
 return interaction.followUp({
 
 content:
-
 `✅ ${selectedTeam.label} rolü verildi.`,
 
 flags:64
@@ -195,6 +213,27 @@ flags:64
 catch (err) {
 
 console.log(err);
+
+try {
+
+if (
+!interaction.replied
+) {
+
+await interaction.reply({
+
+content:
+"Rol verirken hata oluştu.",
+
+flags:64
+
+});
+
+}
+
+}
+
+catch {}
 
 }
 

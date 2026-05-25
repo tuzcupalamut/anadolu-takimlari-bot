@@ -13,7 +13,7 @@ new SlashCommandBuilder()
 )
 
 .setDescription(
-"Booster takımı oluştur"
+"Booster takım başvurusu oluştur"
 )
 
 .addStringOption(
@@ -27,7 +27,7 @@ option
 )
 
 .setDescription(
-"Oluşturmak istediğin takım"
+"Takım adı"
 )
 
 .setRequired(
@@ -40,55 +40,98 @@ async execute(
 interaction
 ) {
 
-await interaction.deferReply({
-flags:64
-});
+try {
 
-const isim =
+const takimAdi =
+
 interaction.options.getString(
 "isim"
 );
 
-const member =
-await interaction.guild.members.fetch(
-interaction.user.id
-);
-
-const boosterRole =
+const boosterRoleId =
 process.env.BOOSTER_ROLE_ID;
 
-console.log(
-"BOOSTER_ROLE_ID:",
-boosterRole
-);
-
-console.log(
-"Kullanıcı rolleri:",
-member.roles.cache.map(
-r => `${r.name} (${r.id})`
-));
-
 if (
-!member.roles.cache.has(
-boosterRole
-)
+!boosterRoleId
 ) {
 
-return interaction.editReply({
+return interaction.reply({
 
 content:
-"Bu sistemi yalnızca sunucu boosterları kullanabilir."
+"BOOSTER_ROLE_ID tanımlanmamış.",
+
+flags:64
 
 });
 
 }
 
-await interaction.editReply({
+const member =
+
+await interaction.guild.members.fetch(
+interaction.user.id
+);
+
+if (
+
+!member.roles.cache.has(
+boosterRoleId
+)
+
+) {
+
+return interaction.reply({
 
 content:
-`🏟️ Takım başvurun alındı: ${isim}\n\nYönetici onayı bekleniyor.`
+"Sadece Sponsor rolüne sahip boosterlar kullanabilir.",
+
+flags:64
 
 });
+
+}
+
+return interaction.reply({
+
+content:
+
+`✅ Takım başvurusu oluşturuldu.\n\nTakım: ${takimAdi}`,
+
+flags:64
+
+});
+
+}
+
+catch (err) {
+
+console.log(
+"boost hata:",
+err
+);
+
+try {
+
+if (
+!interaction.replied
+) {
+
+await interaction.reply({
+
+content:
+"Bir hata oluştu.",
+
+flags:64
+
+});
+
+}
+
+}
+
+catch {}
+
+}
 
 }
 

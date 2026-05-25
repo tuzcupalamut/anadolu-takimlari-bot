@@ -5,6 +5,7 @@ SlashCommandBuilder
 module.exports = {
 
 data:
+
 new SlashCommandBuilder()
 
 .setName(
@@ -12,7 +13,7 @@ new SlashCommandBuilder()
 )
 
 .setDescription(
-"Booster takımı öner"
+"Booster takımı oluştur"
 )
 
 .addStringOption(
@@ -26,7 +27,7 @@ option
 )
 
 .setDescription(
-"Takım adı"
+"Oluşturmak istediğin takım"
 )
 
 .setRequired(
@@ -45,10 +46,37 @@ interaction.options.getString(
 "isim"
 );
 
+const boosterRole =
+
+process.env
+.BOOSTER_ROLE_ID;
+
+const member =
+interaction.member;
+
+if (
+
+!member.roles.cache.has(
+boosterRole
+)
+
+) {
+
+return interaction.reply({
+
+content:
+"Bu sistemi yalnızca sunucu boosterlari kullanabilir.",
+
+flags:64
+
+});
+
+}
+
 await interaction.reply({
 
 content:
-`Başvuru alındı: ${isim}`,
+`🏟️ Takım başvurun alındı: ${isim}\n\nYönetici onayı bekleniyor.`,
 
 flags:64
 

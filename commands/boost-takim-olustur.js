@@ -40,45 +40,53 @@ async execute(
 interaction
 ) {
 
-const isim =
+await interaction.deferReply({
+flags:64
+});
 
+const isim =
 interaction.options.getString(
 "isim"
 );
 
-const boosterRole =
-
-process.env
-.BOOSTER_ROLE_ID;
-
 const member =
-interaction.member;
+await interaction.guild.members.fetch(
+interaction.user.id
+);
+
+const boosterRole =
+process.env.BOOSTER_ROLE_ID;
+
+console.log(
+"BOOSTER_ROLE_ID:",
+boosterRole
+);
+
+console.log(
+"Kullanıcı rolleri:",
+member.roles.cache.map(
+r => `${r.name} (${r.id})`
+));
 
 if (
-
 !member.roles.cache.has(
 boosterRole
 )
-
 ) {
 
-return interaction.reply({
+return interaction.editReply({
 
 content:
-"Bu sistemi yalnızca sunucu boosterlari kullanabilir.",
-
-flags:64
+"Bu sistemi yalnızca sunucu boosterları kullanabilir."
 
 });
 
 }
 
-await interaction.reply({
+await interaction.editReply({
 
 content:
-`🏟️ Takım başvurun alındı: ${isim}\n\nYönetici onayı bekleniyor.`,
-
-flags:64
+`🏟️ Takım başvurun alındı: ${isim}\n\nYönetici onayı bekleniyor.`
 
 });
 

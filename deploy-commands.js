@@ -1,46 +1,77 @@
 require("dotenv").config();
 
-const fs =
-require("fs");
+const fs = require("fs");
 
 const {
-
 REST,
 Routes
+} = require("discord.js");
 
-} = require(
-"discord.js"
-);
+const commands = [];
 
-const commands =
-[];
-
-const files =
-fs.readdirSync(
-"./commands"
+const commandFiles =
+fs
+.readdirSync("./commands")
+.filter(
+file =>
+file.endsWith(".js")
 );
 
 for (
 const file
-of files
+of commandFiles
 ) {
+
+try {
 
 const command =
 require(
 `./commands/${file}`
 );
 
+if (
+!command.data
+) {
+
+console.log(
+`Atlandı: ${file}`
+);
+
+continue;
+
+}
+
 commands.push(
 command.data.toJSON()
 );
+
+console.log(
+`Yüklendi: ${file}`
+);
+
+}
+
+catch (err) {
+
+console.log(
+`HATA → ${file}`
+);
+
+console.log(
+err.message
+);
+
+}
 
 }
 
 const rest =
 new REST({
-version:"10"
-})
-.setToken(
+
+version:
+"10"
+
+}).setToken(
 process.env.TOKEN
 );
 
@@ -48,11 +79,17 @@ process.env.TOKEN
 
 try {
 
+console.log(
+"Komutlar yükleniyor..."
+);
+
 await rest.put(
 
-Routes.applicationCommands(
+Routes.applicationGuildCommands(
 
-process.env.CLIENT_ID
+process.env.CLIENT_ID,
+
+process.env.GUILD_ID
 
 ),
 
@@ -66,17 +103,15 @@ commands
 );
 
 console.log(
-"Komutlar yüklendi."
+"Slash komutlar yüklendi."
 );
 
 }
 
-catch(
-err
-) {
+catch (error) {
 
-console.log(
-err
+console.error(
+error
 );
 
 }

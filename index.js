@@ -109,7 +109,7 @@ console.log(
 
 client.user.setActivity(
 
-"Made by Atilla Şekerci",
+"Made by Barış Varsak",
 
 {
 

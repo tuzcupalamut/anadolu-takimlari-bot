@@ -31,7 +31,7 @@ new EmbedBuilder()
 )
 
 .setTitle(
-"🏟️ Anadolu Takımları"
+"🏟️ Anadolu Şampiyonası"
 )
 
 .setDescription(
